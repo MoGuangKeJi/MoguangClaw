@@ -3,9 +3,9 @@ workspace_root: ~/.moguangclaw/workspace
 
 llm:
   qianwen:
-    model: qwen-plus
+    model: qwen3.5-plus
     api_key: ${QIANWEN_API_KEY}
-    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    base_url: https://coding.dashscope.aliyuncs.com/v1
     temperature: 0.2
     max_tokens: 4000
   openai:
