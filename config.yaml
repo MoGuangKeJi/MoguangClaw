@@ -1,0 +1,39 @@
+default_provider: qianwen
+workspace_root: ~/.moguangclaw/workspace
+
+llm:
+  qianwen:
+    model: qwen-plus
+    api_key: ${QIANWEN_API_KEY}
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    temperature: 0.2
+    max_tokens: 4000
+  openai:
+    model: gpt-4o-mini
+    api_key: ${OPENAI_API_KEY}
+    base_url: https://api.openai.com/v1
+    temperature: 0.2
+    max_tokens: 4000
+
+tools:
+  bash:
+    timeout: 30
+    confirm_mode: never
+    deny_patterns:
+      - rm\s+-rf\s+/
+      - mkfs
+      - dd\s+if=
+      - shutdown
+      - reboot
+      - curl\s+[^|]*\|\s*(sh|bash)
+      - wget\s+[^|]*\|\s*(sh|bash)
+      - chmod\s+777
+      - chown\s+root
+  file:
+    allowed_paths: []
+
+memory:
+  max_history_turns: 12
+
+agent:
+  max_turns: 20
